@@ -1,0 +1,9 @@
+<h2>Parks</h2>
+<% @parks.each do |park| %>
+  <div id="<%= park.api_id %>">
+    <h3>
+      <%= park.full_name %> - <%= park.states.map(&:abbreviation).join(", ") %>
+    </h3>
+    <%= link_to "View Park", park_path(park.id) %>
+  </div>
+<% end %>

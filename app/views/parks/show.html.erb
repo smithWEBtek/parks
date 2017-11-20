@@ -1,0 +1,25 @@
+<%= link_to "Back to Parks", url_for(:back) %>
+
+<h2><%= @park.full_name %></h2>
+<h4>Designation: <%= @park.designation %></h4>
+
+<h3>Located In: <%= @park.states.map(&:abbreviation).join(", ") %></h3>
+
+<h3>Description</h3>
+<p><%= @park.description %></p>
+
+<h3>Weather</h3>
+<p><%= @park.weather_info %></p>
+
+<h3>Directions</h3>
+<p><%= @park.directions_info %></p>
+
+<h3>More Information: </h3>
+<ul>
+  <li><%= link_to "Website", @park.url, { target: "_blank" } %></li>
+  <li>
+    <%= link_to "Directions", @park.directions_url, { target: "_blank" } %>
+  </li>
+</ul>
+
+<%= link_to "Back to Parks", url_for(:back) %>
