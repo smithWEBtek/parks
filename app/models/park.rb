@@ -1,3 +1,4 @@
 class Park < ApplicationRecord
-  belongs_to :state
+  has_many :parks_states
+  has_many :states, through: :parks_states
 end
