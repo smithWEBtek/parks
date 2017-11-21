@@ -1,4 +1,7 @@
 <h2>Parks</h2>
+
+<%= will_paginate @parks %>
+
 <% @parks.each do |park| %>
   <div id="<%= park.api_id %>">
     <h3>
@@ -7,3 +10,5 @@
     <%= link_to "View Park", park_path(park.id) %>
   </div>
 <% end %>
+
+<%= will_paginate @parks %>

@@ -1,6 +1,6 @@
 class ParksController < ApplicationController
   def index
-    @parks = Park.includes(:states).all
+    @parks = Park.paginate(page: params[:page]).includes(:states).all
   end
 
   def show
