@@ -4,6 +4,7 @@ class ParksController < ApplicationController
   end
 
   def show
-    @park = Park.includes(:states).find(params[:id])
+    @park = Park.includes(:states, :reviews).find(params[:id])
+    @review = Review.new
   end
 end

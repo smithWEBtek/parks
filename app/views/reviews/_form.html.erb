@@ -1,0 +1,15 @@
+<%= form_for @review, url: park_reviews_path(@park) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :review %>
+    <%= f.text_area :review %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
