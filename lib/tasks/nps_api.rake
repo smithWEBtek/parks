@@ -7,8 +7,12 @@ namespace :nps do
 
     parks.each do |data|
       park = Park.find_or_create_by(api_id: data["id"])
-      park.states << data["states"].split(",").map do |state|
-        State.find_or_create_by(abbreviation: state)
+
+      data["states"].split(",").map do |state|
+        state_obj = State.find_or_create_by(abbreviation: state)
+        unless park.states.exists?(state_obj.id)
+          park.states << state_obj
+        end
       end
 
       park.lat_long = data["latLong"]
