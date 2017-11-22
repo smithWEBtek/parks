@@ -2,6 +2,21 @@
 
 <%= will_paginate @parks %>
 
+<h3>Search</h3>
+<%= form_tag parks_path, method: :get do %>
+  <%= select_tag(
+    "state",
+    options_from_collection_for_select(
+      @states,
+      "abbreviation",
+      "abbreviation",
+      @selected
+    ),
+    include_blank: "All"
+  ) %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <% @parks.each do |park| %>
   <div id="<%= park.api_id %>">
     <h3>

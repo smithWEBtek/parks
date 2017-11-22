@@ -4,7 +4,11 @@ class ParksController < ApplicationController
       .paginate(page: params[:page])
       .includes(:states)
       .order(:full_name)
+      .by_state(params[:state])
       .all
+
+    @states = State.all.order(:abbreviation)
+    @selected = params[:state]
   end
 
   def show
