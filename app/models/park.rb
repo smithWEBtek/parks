@@ -7,7 +7,7 @@ class Park < ApplicationRecord
     if State.exists?(abbreviation: state)
       self
       .joins(:states)
-      .where(states: { abbreviation: state })
+			.where(states: { abbreviation: state })
     else
       self.all
     end

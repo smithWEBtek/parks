@@ -5,9 +5,8 @@ namespace :nps do
 
     puts "Starting National Parks Service API Import"
 
-    parks.each do |data|
+		parks.each do |data|
       park = Park.find_or_create_by(api_id: data["id"])
-
       data["states"].split(",").map do |state|
         state_obj = State.find_or_create_by(abbreviation: state)
         unless park.states.exists?(state_obj.id)
