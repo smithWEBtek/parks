@@ -12,4 +12,15 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
+
+
+$(document).on('turbolinks:load', function () {
+	console.log("turbolinks:load ... ");
+})
+
+$(document).ready(function () {
+	console.log("document.ready ... ");
+})
