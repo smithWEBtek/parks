@@ -14,8 +14,8 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require parks
 //= require_tree .
-
 
 $(document).on('turbolinks:load', function () {
 	console.log("turbolinks:load ... ");

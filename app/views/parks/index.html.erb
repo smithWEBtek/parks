@@ -2,6 +2,8 @@
 
 <%= will_paginate @parks %>
 
+<div id='result'>my choice</div>
+
 <h3>Search</h3>
 <%= form_tag parks_path, method: :get do %>
   <%= select_tag(
@@ -12,10 +14,13 @@
       "abbreviation",
       @selected
     ),
-    include_blank: "All"
+		include_blank: "All", 
+		id: "state_select"
   ) %>
   <%= submit_tag "Search" %>
 <% end %>
+
+
 
 <% @parks.each do |park| %>
   <div id="<%= park.api_id %>">
